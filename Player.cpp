@@ -21,46 +21,46 @@ namespace coup
     }
     void Player::coup(Player &player)
     {
-        if (!check_if_turn(this->p_name))
-        {
-            throw std::invalid_argument("not the player turn\n");
-        }
-        if (!this->game.check_in_game(player.p_name))
-        {
-            throw std::invalid_argument("player already has been eliminated\n");
-        }
-        if (this->cash < this->coup_cost)
-        {
-            throw std::invalid_argument("player don't have enough money to make coup\n");
-        }
-        this->game.remove_player(player.p_name);
-        player.update_death_round(game.get_round_number());
-        this->decrease_cash(coup_cost);
-        this->game.add_action(this->p_name, "coup");
-        this->action_player = &player;
+        // if (!check_if_turn(this->p_name))
+        // {
+        //     throw std::invalid_argument("not the player turn\n");
+        // }
+        // if (!this->game.check_in_game(player.p_name))
+        // {
+        //     throw std::invalid_argument("player already has been eliminated\n");
+        // }
+        // if (this->cash < this->coup_cost)
+        // {
+        //     throw std::invalid_argument("player don't have enough money to make coup\n");
+        // }
+        // this->game.remove_player(player.p_name);
+        // player.update_death_round(game.get_round_number());
+        // this->decrease_cash(coup_cost);
+        // this->game.add_action(this->p_name, "coup");
+        // this->action_player = &player;
     }
     void Player::income()
     {
-        if (!check_if_turn(this->p_name))
-        {
-            throw std::invalid_argument("not the player turn\n");
-        }
-        this->cash += 1;
-        this->game.add_action(this->p_name, "income");
-        this->game.update_turns();
-        this->game.update_rounds();
+        // if (!check_if_turn(this->p_name))
+        // {
+        //     throw std::invalid_argument("not the player turn\n");
+        // }
+        // this->cash += 1;
+        // this->game.add_action(this->p_name, "income");
+        // this->game.update_turns();
+        // this->game.update_rounds();
     }
     void Player::foreign_aid()
     {
-        std::string turn = this->game.turn();
-        if (this->p_name != turn)
-        {
-            throw std::invalid_argument("not the player turn\n");
-        }
-        this->cash += 2;
-        this->game.add_action(this->p_name, "foreign_aid");
-        this->game.update_turns();
-        this->game.update_rounds();
+        // std::string turn = this->game.turn();
+        // if (this->p_name != turn)
+        // {
+        //     throw std::invalid_argument("not the player turn\n");
+        // }
+        // this->cash += 2;
+        // this->game.add_action(this->p_name, "foreign_aid");
+        // this->game.update_turns();
+        // this->game.update_rounds();
     }
     void Player::decrease_cash(int amount){
         if(this->cash-amount<0 || amount<0){
